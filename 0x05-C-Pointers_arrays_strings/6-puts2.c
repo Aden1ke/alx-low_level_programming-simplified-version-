@@ -23,6 +23,5 @@ void puts2(char *str)
 }
 */
 
-
 /*The task is to write a function that takes a string as input and prints every other character of the string, starting with the first character,
 in the example above, the function takes a string str as input and uses a for loop to iterate over every other character of the string, starting with the first character (i.e., index 0). The loop increment is set to 2 to skip every other character.*/
