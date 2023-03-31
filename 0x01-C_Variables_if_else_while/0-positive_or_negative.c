@@ -19,3 +19,4 @@ else
 printf("%d is zero", n);
 	return (0);
 }
+/*NOTE:if,elseif and else is a conditional operator*/

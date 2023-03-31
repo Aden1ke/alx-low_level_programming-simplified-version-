@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main(void) {
     char n;
-    for (n = 'a'; n <= 'z'; n++)
+    for (n = 'a'; n <= 'z'; n++)/*in a for loop we intialize,condiction and increment it*/
     {
       putchar(n);
     }
