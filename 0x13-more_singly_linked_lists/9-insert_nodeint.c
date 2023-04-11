@@ -277,9 +277,17 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
  * 
  * unsigned int i = 0: We initialize a counter variable i to 0, which we will use to keep track of our current position in the linked list as we iterate through it.
  * 
- * i < idx - 1: is used to iterate through the linked list until the node just before the index where the new node will be inserted.
- *  For example, if we want to insert a node at index 3, we want to iterate through the linked list until we reach the node at index 2, and then insert the new node after that node. Therefore, we use i < idx - 1 to iterate through the linked list idx - 1 times to get to the node just before the desired index.
- * (We check if our current position i is less than the index where we want to insert the new node so We subtract 1 from the index because we want to stop one node before the index where we want to insert the new node.
+ * i < idx - 1: is used to iterate through the linked list so We check if our current position i is less than the index where we want to insert the new node so We subtract 1 from the index because we want to stop one node before the index where we want to insert the new node)
+ *  For example,
+ * if idx = 3(which represent the fourth node in the linked list),
+ * it means we want to add a new node just after 2(which represent the third node in the linked list) 
+ * i is used to iterate the position idx in the linked list
+ * for example : i < 3 - 1 which means i < 2,
+ * therefore if (first node on the linked list is 0) i = 0 (tmp = tmp->next; this command will iterate)
+ * i++, then i becomes 1(second node on the linked list is 1) i = 1 (tmp = tmp->next; this command will iterate)
+ * i++ then i becomes 2(third node on the linked list is 2) i = 1 (tmp = tmp->next; this command will iterate)
+ * since i < 2(the linked list will not iterate tmp = tmp->next; and i++ which means we can add the new node before idx=3)
+ *  (if we want to insert a node at index 3, we want to iterate through the linked list until we reach the node at index 2, and then insert the new node after that node. Therefore, we use i < idx - 1 to iterate through the linked list idx - 1 times to get to the node just before the desired index.)
  * 
  * tmp != NULL: We check if we have not reached the end of the linked list, which means that tmp is not equal to NULL. This check ensures that we do not try to access a null pointer and avoids a segmentation fault.
  * 
