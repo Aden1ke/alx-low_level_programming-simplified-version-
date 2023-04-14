@@ -59,7 +59,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
  *                | NULL <-----new_node->next
  *                +-------+
  * 
- * if idx = 0
+ * if idx = 0(add a new_node to the front of the linked list)
  * new_node-next= head
  *                +-------+                     +-------+       +------+
  *                | 0000  |                     | 1000  |       | 2000 |
@@ -97,9 +97,47 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
  *                        +-------+      +-------+       +------+
  * 
  * 
- * 
- * if idx = 2
+ */
+
+
+
+ /** if idx = 2
  * while (i < 2 - 1 && tmp != NULL),therefore the new_node will be added at 1,while (i < 1 && tmp != NULL)
+ * i < 1
+ * we need to print out each node in the linked list :
+ *  i = 0(print the 1st node on the linked list)
+ * tmp=tmp->next;
+ * i++
+ *                     +-------+
+ *                     | 0000  |     
+ *  *head-->head---->  |   4   |    
+ *     ^               +-------+     
+ *     |               |       |     
+ *     |               | 1000 -|
+ *     tmp             +-------+    
+ * 
+ * i = 1(print the 2nd node on the linked list)
+ * tmp=tmp->next;
+ * i++
+ *                     +-------+       +------+
+ *                     | 1000  |       | 1000 |
+ *  *head-->head---->  |   4   |       |   1  |
+ *                     +-------+       +------+
+ *                     |       | tmp-->|      |
+ *                     | 1000 -|-----> | 2000 |
+ *                     +-------+       +------+ 
+ * 
+ *  i = 2(print the 3rd node on the linked list)
+ * tmp=tmp->next;
+ * i++
+ *                        +-------+      +-------+       +------+
+ *                        | 0000  |      | 1000  |       | 2000 |
+ *     *head---->head---->|   4   |      |   1   |       |   2  |
+ *                        +-------+      +-------+       +------+
+ *                        |       |      |       | tmp-->|      |
+ *                        | 1000  | ---> | 2000 -|-----> | NULL |
+ *                        +-------+      +-------+       +------+
+ * i < 1(add new node)
  *                +-------+      
  *                |  3000 <-----new_node(address)    
  * new_node---->  |   5   <-----new_node-->n
@@ -158,9 +196,55 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
  *                   +-------+      +---|---+       +------+      +------+
  * 
  * 
- * 
- * if idx = 3
+ */
+
+
+
+ /** if idx = 3
  * while (i < 3 - 1 && tmp != NULL),therefore the new_node will be added at 1,while (i < 2 && tmp != NULL)
+ * i < 2
+ * we need to print out each node in the linked list :
+ *  i = 0(print the 1st node on the linked list)
+ * tmp=tmp->next;
+ * i++
+ *                     +-------+
+ *                     | 0000  |     
+ *  *head-->head---->  |   4   |    
+ *     ^               +-------+     
+ *     |               |       |     
+ *     |               | 1000 -|
+ *     tmp             +-------+    
+ * 
+ * i = 1(print the 2nd node on the linked list)
+ * tmp=tmp->next;
+ * i++
+ *                     +-------+       +------+
+ *                     | 1000  |       | 1000 |
+ *  *head-->head---->  |   4   |       |   1  |
+ *                     +-------+       +------+
+ *                     |       | tmp-->|      |
+ *                     | 1000 -|-----> | 2000 |
+ *                     +-------+       +------+ 
+ * i = 2(print the 3rd node on the linked list)
+ * i < 2(add new node)
+ *                        +-------+      +-------+       +------+
+ *                        | 0000  |      | 1000  |       | 3000 | 
+ *            *head---->  |   4   |      |   1   |       |   5  |
+ *                        +-------+      +-------+       +------+
+ *                        |       |      |       | tmp-->|      |
+ *                        | 1000  | ---> | 3000 -|-----> | 2000 |
+ *                        +-------+      +-------+       +------+
+ * 
+ *  i = 3(print the 4th node on the linked list)
+ * i < 2(add new node)
+ *                   +-------+      +-------+       +------+      +------+
+ *                   |  0000 |      | 1000  |       | 3000 |      | 2000 |
+ *        *head--->  |   4   |      |   1   |       |   5  |      |   2  |
+ *                   +-------+      +-------+       +------+      +------+
+ *                   |       |tmp-->|       |       |      |      |      |
+ *                   | 1000  | ---> | 3000 -|-----> | 2000 |----->| NULL |
+ *                   +-------+      +---|---+       +------+      +------+
+ * 
  *                +-------+      
  *                |  4000 <-----new_node(address)    
  * new_node---->  |   6   <-----new_node-->n
@@ -170,7 +254,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
  *                +-------+
  * 
  * new_node->next = tmp->next;
-  *                   +-------+      +-------+       +------+      +------+
+ *                   +-------+      +-------+       +------+      +------+
  *                   |  0000 |      | 1000  |       | 3000 |      | 2000 |
  *        *head--->  |   4   |      |   1   |       |   5  |      |   2  |
  *                   +-------+      +-------+       +------+      +------+
@@ -215,7 +299,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
  *        *head--->  |   4   |      |   1   |       |   5  |      |   6  |     |   2   |
  *                   +-------+      +-------+       +------+      +------+     +-------+
  *                   |       |tmp-->|       |       |      |      |      |     |       |     
- *                   | 1000  | ---> | 3000 -|-----> | 2000 |----->| 2000 |---->| NULL  |
+ *                   | 1000  | ---> | 3000 -|-----> | 4000 |----->| 2000 |---->| NULL  |
  *                   +-------+      +---|---+       +------+      +------+      +------+
  * */
 
