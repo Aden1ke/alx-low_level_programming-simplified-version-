@@ -8,3 +8,8 @@ void print_numbers(void)
     }
     _putchar('\n');
 }
+/**
+ * In C programming, _putchar is a function that writes a single character to the standard output. 
+ * The parameter i in the expression _putchar(i + '0') represents an integer value, 
+ * and i + '0' is an expression that adds the integer value of i to the ASCII value of the character '0'
+*/
